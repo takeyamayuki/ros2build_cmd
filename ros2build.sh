@@ -6,6 +6,13 @@ package=$1
 
 cd ~/ros2_ws
 rosdep install -i --from-path src --rosdistro foxy -y
-colcon build --packages-select $package
-# colcon build --packages-select recognizer
+
+# packegeが空のとき、全てのパッケージをビルドする
+if [ -z "$package" ]; then
+    colcon build
+else
+    colcon build --packages-select $package
+fi
+
 source ~/ros2_ws/install/setup.bash
+cd
