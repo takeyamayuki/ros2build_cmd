@@ -5,7 +5,7 @@
 package=$1
 
 cd ~/ros2_ws
-rosdep install -i --from-path src --rosdistro foxy -y
+rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
 
 # packegeが空のとき、全てのパッケージをビルドする
 if [ -z "$package" ]; then
