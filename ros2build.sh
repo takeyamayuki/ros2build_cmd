@@ -3,6 +3,7 @@
 # Usage: ros2build.sh recognizer
 
 package=$1
+dir=$(cd $(dirname ${0}) && pwd)
 
 cd ~/ros2_ws
 rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
@@ -15,4 +16,4 @@ else
 fi
 
 source ~/ros2_ws/install/setup.bash
-cd
+cd $dir
